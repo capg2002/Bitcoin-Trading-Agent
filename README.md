@@ -1,6 +1,57 @@
-# Bitcoin Trading Agent
+# Bitcoin Trading Agent | Quantitative Finance & Applied AI
 
-A Python project for historical BTC backtesting and persistent paper trading with live market data. It combines dip-based DCA accumulation, moving-average swing entries, ATR stops, and GARCH-based position sizing and trailing stops. Optional workers provide Telegram notifications, scheduled Gmail reports, Google Sheets configuration, and Gemini strategy-mode recommendations.
+**Python · GARCH · Algorithmic Trading · Gemini LLM · SQLite · Docker**
+
+An autonomous Bitcoin paper-trading system integrating statistical volatility forecasting, algorithmic trading strategies, and LLM-assisted decision-making. Designed to evaluate trading strategies under real market conditions while automating risk management, execution simulation, and portfolio monitoring.
+
+## Project Overview
+
+**The Problem**
+
+Automated cryptocurrency trading requires more than generating buy and sell signals. A reliable system must account for market volatility, execution timing, capital allocation, transaction costs, and interruptions in market data.
+
+**The Solution**
+
+I developed a modular Python application combining three main components:
+
+- **Algorithmic Trading:** Dip-triggered accumulation and SMA crossover strategies with ATR-based protective stops and configurable capital allocations.
+- **Statistical Modeling & AI:** GARCH(1,1) volatility forecasting for adaptive risk management, complemented by a Gemini LLM advisor for market interpretation.
+- **Software Engineering:** Restartable SQLite portfolio persistence, Docker deployment support, automated reporting, and integrations with Coinbase, Telegram, Gmail, and Google Sheets.
+
+## Evaluation Results
+
+A seven-day paper-trading evaluation used real Coinbase market data with simulated executions, fees, and portfolio accounting.
+
+| Metric | Recorded Result |
+|---|---:|
+| Observed portfolio return (after fees) | **+0.18%** |
+| Starting portfolio value | $10,000 |
+| Recorded GARCH forecasts | **86** |
+| Simulated trade fills | 4 |
+| Trading fees | $0.75 |
+
+**Interpretation:** The observed portfolio increase was primarily driven by unrealized appreciation in accumulated Bitcoin holdings. These results demonstrate the system's execution, forecasting, and monitoring capabilities, rather than establishing long-term trading profitability.
+
+## System Architecture
+
+**Market Data → Data Validation → Technical Indicators & GARCH → Trading Strategies & Risk Controls → Simulated Execution → SQLite Persistence → Monitoring & Reporting**
+
+The application separates historical backtesting from live-data paper trading while sharing a common trading engine. Trade signals, simulated executions, and portfolio accounting are handled independently to maintain consistent execution assumptions.
+
+## Technical Stack
+
+| Component | Technologies |
+|---|---|
+| Core development | Python, pandas, NumPy |
+| Statistical forecasting | ARCH / GARCH(1,1) |
+| Trading strategies | SMA, ATR, dip-triggered DCA |
+| AI advisory | Google Gemini |
+| Market data | Coinbase, Yahoo Finance |
+| Data persistence | SQLite |
+| Infrastructure | Docker, Python unittest |
+| Integrations | Telegram, Gmail, Google Sheets |
+
+---
 
 **All executions are simulated. The project does not submit real exchange orders.** Gemini recommendations are advisory only and cannot change settings or place trades.
 
