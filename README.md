@@ -55,6 +55,16 @@ The application separates historical backtesting from live-data paper trading wh
 
 **All executions are simulated. The project does not submit real exchange orders.** Gemini recommendations are advisory only and cannot change settings or place trades.
 
+
+flowchart TD
+    A["Coinbase / Yahoo Finance<br/>Market Data"] --> B["Validation & Indicators<br/>SMA · ATR · GARCH"]
+    B --> C["Trading Engine<br/>DCA · Swing"]
+    B --> D["Gemini LLM Advisor"]
+    D --> C
+    C --> E["Risk Controls &<br/>Simulated Execution"]
+    E --> F[("SQLite<br/>Portfolio & Trade History")]
+    F --> G["Monitoring & Reporting<br/>Telegram · Gmail"]
+
 ## Features
 
 - Historical hourly BTC-USD data from Yahoo Finance through `yfinance`.
